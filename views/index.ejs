@@ -1,0 +1,31 @@
+<%-include("./partials/header")%>
+
+<nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="https://w7.pngwing.com/pngs/670/265/png-transparent-checkmark-done-exam-list-pencil-todo-xomo-basics-icon-thumbnail.png" alt="Logo" width="35" height="35" class="d-inline-block align-text-top">
+        Conquer The Day- Task Manager
+      </a>
+    </div>
+  </nav>
+
+
+  <div class="container mt-5 w-75">
+    <form action="/add/todo" method="post" class="d-flex">
+        <input type="text" name="todo" class="form-control" placeholder="Enter task">
+        <input type="submit" value="Add Task" class="btn btn-md btn-primary mx-2">
+    </form>  
+
+    <ul class="list-group my-5">
+        <% todo.forEach(todos=>{ %>
+<!-- <li class="list-group-item"><%=todos.todo%><a href="/delete/todo/<%= todos._id%>" class="btn btn-sm btn-danger w-5">Delete</a></li> -->
+<li class="list-group-item d-flex justify-content-between align-items-center">
+<%= todos.todo %>
+<a href="/delete/todo/<%= todos._id %>" class="btn btn-sm btn-danger">Delete</a>
+</li>
+
+            <%}) %>  
+    </ul>
+</div>
+
+<%-include("./partials/footer")%>
